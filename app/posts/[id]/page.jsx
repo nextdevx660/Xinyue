@@ -141,7 +141,7 @@ export default function PostPage() {
                                                   {/* 🔹 Responsive Grid Layout */}
                                                   <div className="grid grid-cols-1 lg:grid-cols-2">
                                                             {/* Media Section */}
-                                                            <div className="relative h-[500px] lg:h-[100%] overflow-hidden group">
+                                                            <div className="relative h-[100%] lg:h-[100%] overflow-hidden group">
                                                                       {isVideo ? (
                                                                                 <video
                                                                                           src={isLocked ? '' : post.fileUrl}
