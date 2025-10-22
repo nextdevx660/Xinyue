@@ -1,3 +1,5 @@
+'use client'
+
 import { Libre_Baskerville } from "next/font/google";
 import Image from "next/image";
 import React from "react";
@@ -6,6 +8,9 @@ import GetInTouch from "../_components/GetInTouch";
 import Footer from "../_components/Footer";
 import Header from "../_components/Header";
 import Link from "next/link";
+import { auth } from "@/lib/appwriteConfig";
+import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
@@ -13,6 +18,15 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export default function Page() {
+const router = useRouter()
+  const u = onAuthStateChanged(auth, async (u) => {
+    if (!u) {
+      router.push('/sign-up')
+    }
+  })
+  console.log(u);
+  
+
   return (
     <div>
       <Header />
